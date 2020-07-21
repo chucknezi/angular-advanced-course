@@ -1,6 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
-import {AuModalService} from "./modal.service";
-import {EventManager} from '@angular/platform-browser';
+import {Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'au-modal',
@@ -8,53 +6,8 @@ import {EventManager} from '@angular/platform-browser';
     styleUrls: ['./au-modal.component.scss']
 })
 export class AuModalComponent implements OnInit {
+  ngOnInit() {
+  }
 
-    @Input()
-    body: TemplateRef<any>;
-
-    @Input()
-    context:any;
-
-    @Input()
-    hideOnEsc = true;
-
-    @Input()
-    hideOnClickOutside = true;
-
-
-    constructor(private modalService: AuModalService,
-                private eventManager: EventManager) {
-
-
-
-    }
-
-    ngOnInit() {
-
-        this.eventManager.addGlobalEventListener("window",'keyup.esc', () => {
-            if (this.hideOnEsc) {
-                this.close();
-            }
-        });
-
-    }
-
-
-    onClickOutsideModal() {
-        if (this.hideOnClickOutside) {
-            this.close();
-        }
-
-    }
-
-    close() {
-        this.modalService.close();
-    }
-
-
-    cancelClick(evt: KeyboardEvent) {
-        evt.preventDefault();
-        evt.stopPropagation();
-    }
 
 }

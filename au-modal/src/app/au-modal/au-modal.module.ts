@@ -11,23 +11,13 @@ import {AuModalService} from "./modal.service";
 
 
 @NgModule({
-  declarations: [AuModalComponent, AuModalOpenOnClickDirective],
+  declarations: [AuModalComponent],
   imports: [
     CommonModule
   ],
-  exports: [AuModalComponent, AuModalOpenOnClickDirective]
+  exports: [AuModalComponent]
 })
 export class AuModalModule {
-
-
-
-    static forRoot():  ModuleWithProviders{
-        return {
-            ngModule: AuModalModule,
-            providers: [AuModalService]
-        }
-    }
-
 
 
 
